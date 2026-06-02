@@ -31,7 +31,10 @@ Describe the change, not when. Examples:
 
 ## Dataset access
 
-The 3 demo clips live in the shared Google Drive folder. Each team member places the .mp4 files into their local `./clips/` folder (gitignored).
+The 3 demo clips live in the shared Google Drive folder:
+**https://drive.google.com/drive/folders/1XNhYYuOVIVCyldNk0RC3zRnGOpTVGbQl**
+
+Access is restricted to team members. Each person places the .mp4 files into their local `./clips/` folder (gitignored — never commit videos).
 
 ## Detector contract (locked — do not change without team discussion)
 
