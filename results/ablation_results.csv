@@ -1,0 +1,4 @@
+config,precision,recall,fp_rate,tp,fp,fn,tn
+dwell_only,0,0.0,0.0,0,0,1,2
+motion_only,0.5,1.0,0.5,1,1,0,1
+dwell_motion,0,0.0,0.0,0,0,1,2
