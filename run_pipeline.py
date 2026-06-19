@@ -24,7 +24,7 @@ def run(video_path, roi, use_dwell=True, use_motion=True):
         return
 
     detector    = Detector(conf_threshold=0.25)
-    tracker     = Tracker(max_age=150)
+    tracker     = Tracker(max_age=300)
     rule_engine = RuleEngine(use_dwell=use_dwell, use_motion=use_motion)
 
     fps = cap.get(cv2.CAP_PROP_FPS) or 25

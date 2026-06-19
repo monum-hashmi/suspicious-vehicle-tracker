@@ -47,7 +47,7 @@ class RuleEngine:
             person_id  = pair["person_id"]
             vehicle_id = pair["vehicle_id"]
             centroid   = pair["pair_centroid"]
-            key        = self._pair_key(person_id, vehicle_id)
+            key = self._pair_key(person_id, vehicle_id)
 
             # Check if pair is inside ROI
             in_roi = roi.is_inside(centroid)
@@ -79,7 +79,7 @@ class RuleEngine:
 
             # --- Condition B: Motion stagnation ---
             condition_b = False
-            if key in tracks_by_id.get(vehicle_id, {}) or vehicle_id in [t for t in tracks_by_id]:
+            if vehicle_id in tracks_by_id:
                 vehicle_track = tracks_by_id.get(vehicle_id)
                 if vehicle_track:
                     vehicle_width = vehicle_track["bbox"][2]

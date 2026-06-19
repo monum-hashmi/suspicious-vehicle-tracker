@@ -220,6 +220,7 @@ __marimo__/
 
 # Project-specific
 venv/
+venv310/
 *.pt
 *.jpg
 *.png
