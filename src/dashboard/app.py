@@ -38,8 +38,8 @@ with st.sidebar:
 st.title("🛡️ Suspicious vehicle & person tracker")
 st.caption("Real-time multi-class detection and behavioral alert system for flagged zones")
 
-severities = ["Critical", "High", "Medium", "Low"]
-severity_colors = {"Critical": "🔴", "High": "🟠", "Medium": "🟡", "Low": "🟢"}
+severities = ["Critical", "High", "Medium", "Unknown"]
+severity_colors = {"Critical": "🔴", "High": "🟠", "Medium": "🟡", "Unknown": "⚪"}
 
 
 st.divider()
@@ -183,7 +183,16 @@ with right:
 
         for i, alert in enumerate(alerts):
             alert_id, ts, person_id, vehicle_id, roi_id, snapshot, source, rule_triggered, dwell_time_at_trigger = alert
-            severity = "Critical" if ts > 120 else "High" if ts > 113 else "Medium"
+
+            if dwell_time_at_trigger is None:
+                severity = "Unknown"
+            elif dwell_time_at_trigger >= 60:
+                severity = "Critical"
+            elif dwell_time_at_trigger >= 50:
+                severity = "High"
+            else:
+                severity = "Medium"
+
             rule = rule_triggered or "Not recorded"
 
             if search and search not in str(person_id) and search not in str(vehicle_id):
@@ -207,7 +216,17 @@ if "selected_alert" in st.session_state and alerts:
 
     if not sel.empty:
         row = sel.iloc[0]
-        severity = "Critical" if row["timestamp"] > 120 else "High" if row["timestamp"] > 113 else "Medium"
+        dwell = row["dwell_time_at_trigger"]
+
+        if pd.isna(dwell):
+            severity = "Unknown"
+        elif dwell >= 60:
+            severity = "Critical"
+        elif dwell >= 50:
+            severity = "High"
+        else:
+            severity = "Medium"
+
         rule = row["rule_triggered"] if pd.notna(row["rule_triggered"]) else "Not recorded"
 
         with st.container(border=True):
