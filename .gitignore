@@ -246,4 +246,11 @@ results/metrics/*.csv
 runs/
 
 # Local scratch
-_scratch/
+_scratch/.DS_Store
+results/.DS_Store
+results/alerts.db
+results/clip01_output.txt
+results/clip01_pipeline_output.txt
+roi.json
+streamlit
+docs/sample_alerts.json
