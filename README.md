@@ -1,6 +1,6 @@
 # suspicious-vehicle-tracker
 Real-time multi-class detection and behavioral alert system for flagged zones (DL course project)
-# 🛡️ Sentinel — Suspicious Vehicle & Person Tracker
+# 🛡️  Suspicious Vehicle & Person Tracker
 
 > Automatically detects suspicious person-vehicle loitering in surveillance footage using YOLOv8 + DeepSORT + a custom two-signal rule engine, with a Streamlit dashboard for forensic alert review.
 
